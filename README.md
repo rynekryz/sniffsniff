@@ -4,6 +4,13 @@
 <p>A modern, open-source network monitor for Android. Built with Jetpack Compose and Material 3 Expressive</p>
 <p>See what's flowing. Local-only packet analysis with a privacy-first design.</p>
 </div>
+<p align="center">
+  <a href="https://github.com/rynekryz/sniffsniff/stargazers"><img src="https://img.shields.io/github/stars/rynekryz/sniffsniff?style=flat&logo=github&labelColor=5F5E5E&color=5F5E5E&logoColor=white&sort=semver" alt="GitHub stars" height="30"/></a>
+  <a href="https://github.com/rynekryz/sniffsniff/tags"><img src="https://img.shields.io/github/v/tag/rynekryz/sniffsniff?style=flat&logo=git&labelColor=5F5E5E&color=5F5E5E&logoColor=white&sort=semver" alt="Latest release" height="30"/></a>
+  <a href="LICENSE"><img src="assets/badges/licencegplv3.svg" alt="Licence GPLv3"/></a>
+  <img src="assets/badges/android.svg" alt="Android"/>
+  <img src="assets/badges/kotlin.svg" alt="Kotlin"/>
+</p>
 
 ---
 
@@ -111,6 +118,6 @@ Contributions are welcome! Feel free to open [issues](https://github.com/rynekry
 <strong>Made with ♥︎ by Ryne</strong>
 </div>
 <div align="center">
-  <a href="DISCORD_INVITE"><img src="https://img.shields.io/badge/Discord-5A5A5A?style=for-the-badge&logo=discord&logoColor=white"/></a>
-  <a href="https://tiktok.com/@rynekryz"><img src="https://img.shields.io/badge/TikTok-5A5A5A?style=for-the-badge&logo=tiktok&logoColor=white"/></a>
+  <a href="https://discord.gg/YKhWXXhKmC"><img src="assets/badges/discord.svg" alt="Discord"/></a>
+  <a href="https://tiktok.com/@rynekryz"><img src="assets/badges/tiktok.svg" alt="TikTok"/></a>
 </div>
