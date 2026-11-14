@@ -5,8 +5,8 @@
 <p>See what's flowing. Local-only packet analysis with a privacy-first design.</p>
 </div>
 <p align="center">
-  <a href="https://github.com/rynekryz/sniffsniff/stargazers"><img src="https://img.shields.io/github/stars/rynekryz/sniffsniff?style=flat&logo=github&labelColor=5F5E5E&color=5F5E5E&logoColor=white&sort=semver" alt="GitHub stars" height="30"/></a>
-  <a href="https://github.com/rynekryz/sniffsniff/tags"><img src="https://img.shields.io/github/v/tag/rynekryz/sniffsniff?style=flat&logo=git&labelColor=5F5E5E&color=5F5E5E&logoColor=white&sort=semver" alt="Latest release" height="30"/></a>
+  <a href="https://github.com/rynekryz/sniffsniff/stargazers"><img src="assets/badges/stars.svg" alt="GitHub stars" height="30"/></a>
+  <a href="https://github.com/rynekryz/sniffsniff/tags"><img src="assets/badges/release.svg" alt="Latest release" height="30"/></a>
   <a href="LICENSE"><img src="assets/badges/licencegplv3.svg" alt="Licence GPLv3"/></a>
   <img src="assets/badges/android.svg" alt="Android"/>
   <img src="assets/badges/kotlin.svg" alt="Kotlin"/>
