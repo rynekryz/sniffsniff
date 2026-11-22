@@ -1,8 +1,8 @@
 <div align="center">
 <img src="icon.png" width="160" height="160" style="display: block; margin: 0 auto"/>
 <h1>SniffSniff</h1>
-<p>A modern, open-source network monitor for Android. Built with Jetpack Compose and Material 3 Expressive</p>
-<p>See what's flowing. Local-only packet analysis with a privacy-first design.</p>
+<p>An open-source network monitor for Android.</p>
+<p>Watch live traffic, inspect packets, and see per-app usage, all locally with no cloud or external APIs.</p>
 </div>
 <p align="center">
   <a href="https://github.com/rynekryz/sniffsniff/stargazers"><img src="assets/badges/stars.svg" alt="GitHub stars" height="30"/></a>
@@ -10,6 +10,10 @@
   <a href="LICENSE"><img src="assets/badges/licencegplv3.svg" alt="Licence GPLv3"/></a>
   <img src="assets/badges/android.svg" alt="Android"/>
   <img src="assets/badges/kotlin.svg" alt="Kotlin"/>
+</p>
+
+<p align="center">
+  <a href="https://github.com/rynekryz/sniffsniff/releases"><img src="assets/badges/getgithub.svg" alt="Get it on GitHub" height="56"/></a>
 </p>
 
 ---
@@ -27,45 +31,54 @@
 
 ## Features
 
-### Network Analysis
-- **Dashboard:** Live download and upload speed, a 60 second traffic graph, totals, packet and connection counters.
-- **Connections:** IP addresses, ports, protocols and the owning app. Host names come from TLS SNI, HTTP Host and DNS answers.
-- **Packet Inspector:** Parsed IPv4, IPv6, TCP, UDP, ICMP, DNS, TLS and HTTP headers, payload preview and a hex viewer.
-- **Applications:** Per-app traffic for the current session, today, 7 days and 30 days.
-- **PCAP Export:** Save captured packets and open them in Wireshark.
-
-### Beautiful Design
-- **Material 3 Expressive:** Grouped rounded surfaces, spring transitions and expressive loading indicators.
-- **Dynamic Color (Material You):** Themes that adapt to your wallpaper, plus a monochrome fallback.
-- **Dark Mode & OLED Support:** Light, dark and a "Pure Black" mode.
-
-### Privacy & FOSS
-- **GPL-3.0-or-later.**
-- **No analytics, telemetry, ads or accounts.**
-- **No cloud and no external APIs.** All analysis happens on your device.
-- **User-controlled capture:** Choose which apps are captured, how much payload is kept, and how long history is stored.
+- **Dashboard:** live up/down speed, a 60 second traffic graph, totals, and packet and connection counters
+- **Connections:** IPs, ports, protocols and the owning app, with host names from TLS SNI, HTTP Host and DNS
+- **Packet Inspector:** parsed IPv4, IPv6, TCP, UDP, ICMP, DNS, TLS and HTTP, plus a payload preview and hex viewer
+- **Applications:** per-app traffic for the session, today, 7 days and 30 days
+- **PCAP export** you can open in Wireshark
+- **Material 3 Expressive** with spring transitions and expressive loading
+- Dynamic color from your wallpaper, plus a monochrome fallback
+- Light, dark, and pure black OLED
+- GPL-3.0-or-later, with no analytics, telemetry, ads or accounts
+- No cloud, no external APIs, everything happens on your device
+- You choose which apps are captured, how much payload is kept, and how long history is stored
+- etc.
 
 ---
 
-## Tech Stack
+## Technical Stack
 
-| Component         | Technology                  |
-| ----------------- | --------------------------- |
-| Language          | Kotlin                      |
-| UI                | Jetpack Compose             |
-| Design            | Material 3 Expressive       |
-| Architecture      | MVVM                        |
-| Async             | Coroutines + Flow           |
-| DI                | Hilt                        |
-| Database          | Room                        |
-| Preferences       | DataStore                   |
-| Network capture   | Android VpnService          |
-| Packet processing | Kotlin (user-space TCP/UDP) |
-| Minimum SDK       | 31 (Android 12)             |
+- **UI:** Jetpack Compose with Material 3 Expressive
+- **Architecture:** multi-module MVVM
+- **DI:** Hilt
+- **Database:** Room
+- **Preferences:** DataStore
+- **Capture:** Android VpnService with user-space TCP/UDP
+- **Language:** Kotlin
+- **Build:** Gradle (Kotlin DSL)
+
+---
+
+## Building
+
+You'll need Android Studio with JDK 21. Copy `local.properties.template` to `local.properties`, set `sdk.dir`, then run:
+
+```bash
+./gradlew assembleDebug
+```
+
+## Limitations
+
+- TLS and QUIC payloads are encrypted. SniffSniff shows metadata only and never decrypts anything.
+- ICMP is captured and shown, but not forwarded. It's just visiting.
+- Android's Private DNS hides DNS names, so turn it off if you want host names.
+- Another active VPN or an always-on VPN lockdown will block capture.
+
+---
 
 ## Project Structure
 
-```text
+```
 SniffSniff/
 ├── app/
 ├── core/
@@ -87,32 +100,11 @@ SniffSniff/
     └── pcap/
 ```
 
-Traffic path: `VpnService TUN` → `forwarding` (protected sockets) → `capture` (parser, flow table, UID lookup) → `ViewModel + Repository` → Compose UI.
-
 ---
-
-## Building
-
-1. Install Android Studio with JDK 21.
-2. Copy `local.properties.template` to `local.properties` and set `sdk.dir`.
-3. Run `./gradlew assembleDebug`.
-
-## Limitations
-
-- TLS and QUIC payloads are encrypted. SniffSniff shows metadata only and does not decrypt traffic.
-- ICMP is captured and shown but not forwarded.
-- Android's Private DNS (DNS over TLS) hides DNS names. Disable it for host names from DNS.
-- Another active VPN or an always-on VPN lockdown prevents capture.
 
 ## License
 
-Distributed under the GNU General Public License v3.0 or later (GPL-3.0-or-later). See [LICENSE](LICENSE) for more information.
-
----
-
-## Contributing
-
-Contributions are welcome! Feel free to open [issues](https://github.com/rynekryz/sniffsniff/issues) or submit pull requests.
+Licensed under GPL-3.0-or-later. See [LICENSE](LICENSE).
 
 <div align="center">
 <strong>Made with ♥︎ by Ryne</strong>
